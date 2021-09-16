@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { COFEE_LIST } from './constants'
+import  starbucks  from '../../icon/starbucks_logo.png'
 
 type BrandType = keyof typeof COFEE_LIST
 
@@ -11,9 +12,9 @@ const Map = () => {
   useEffect(() => {
     if (google) {
       const map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
-        center: { lat: 40.7831, lng: -73.935242 },
-        zoom: 12,
-        draggable: false,
+        center: { lat: 40.758169722616834,lng: -73.9855318731300 },
+        zoom: 13,
+        draggable: true,
       });
 
       setMapInstance(map)
@@ -28,6 +29,10 @@ const Map = () => {
           map: mapInstance,
           label,
           clickable: true,
+          icon: {
+            url: starbucks,
+            scaledSize: new google.maps.Size(20, 20),
+          }
         });
         setMarkers(currentMarkers => [...currentMarkers, marker])
       })
@@ -43,7 +48,7 @@ const Map = () => {
 
   return (
     <div style={{ position: 'relative' }}>
-      <div id="map" style={{ height: '100vh', width: '100vw' }} />
+      <div id="map" style={{ height: '50vw', width: '50vw', margin:'auto' }} />
       <div style={{
         position: "absolute",
         backgroundColor: 'white',
