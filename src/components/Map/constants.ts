@@ -20,14 +20,67 @@ const PEETS_COFFEE: CoffeeType[] = [
   },
 ];
 
-const COFFEE_BEANS: CoffeeType[] = [
+const BLUE_BOTTLE: CoffeeType[] = [
   {
-    position: { lat: 40.79, lng: -73.9 },
-    label: "Coffee Beans",
-  },
-  {
-    position: { lat: 40.79, lng: -73.89 },
-    label: "Coffee Beans",
+    position: { lat: 40.77934364509003, lng: -73.9808783876117 },
+    label: "Blue bottle",
+    address: "279 Amsterdam Ave",
+    zip:10023
+  },{
+    position: { lat: 40.71190154045644, lng: -74.01224875592692 },
+    label: "Blue bottle",
+    address: "22 Broad St",
+    zip:10005
+  },{
+    position: { lat: 40.75794777735989, lng: -73.98443961511916 },
+    label: "Blue bottle",
+    address: "54 W 40th St.",
+    zip:10018
+  },{
+    position: { lat: 40.741432030992115, lng: -73.9858987365095},
+    label: "Blue bottle",
+    address: "257 Park Ave South",
+    zip:10010
+  },{
+    position: { lat: 40.754241846288416, lng: -74.00186324126891},
+    label: "Blue bottle",
+    address: "20 Hudson Yards #228",
+    zip:10018
+  },{
+    position: { lat: 40.7608733693555, lng: -73.97602820613578},
+    label: "Blue bottle",
+    address: "10 E 53rd Street",
+    zip:10022
+  },{
+    position: { lat: 40.76412387433224, lng: -73.97868895726243},
+    label: "Blue bottle",
+    address: "1345 Avenue of the Americas",
+    zip:10105
+  },{
+    position: { lat: 40.809289429873004, lng: -73.96409774132287},
+    label: "Blue bottle",
+    address: "2901 Broadway",
+    zip:10025
+  },{
+    position: { lat: 40.75255135225154, lng: -73.99594092424503},
+    label: "Blue bottle",
+    address: "441 8th Ave",
+    zip:10001
+  },{
+    position: { lat: 40.72035874703207, lng: -74.00203490463252},
+    label: "Blue bottle",
+    address: "396 Broadway",
+    zip:10013
+  },{
+    position: { lat: 40.735579010462764, lng: -73.99259352966692},
+    label: "Blue bottle",
+    address: "101 University Place",
+    zip:10003
+  },{
+    position: { lat: 40.7132027195362, lng: -74.01096129550908},
+    label: "Blue bottle",
+    address: "150 Greenwich St",
+    zip:10007
   },
 ];
 
@@ -704,6 +757,6 @@ const STARBUCKS: CoffeeType[] = [
 
 export const COFEE_LIST = {
   PEETS_COFFEE,
-  COFFEE_BEANS,
+  BLUE_BOTTLE,
   STARBUCKS,
 };

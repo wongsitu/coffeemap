@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { COFEE_LIST } from './constants'
-import  starbucks  from '../../icon/starbucks_logo.png'
+import starbucks from '../../icon/starbucks_logo.png'
+import blueBottle from '../../icon/blue_bottle_logo.png'
+import peets from '../../icon/peets_logo.png'
+
 
 type BrandType = keyof typeof COFEE_LIST
 
@@ -23,19 +26,48 @@ const Map = () => {
 
   useEffect(() => {
     if (selectedBrand) {
-      COFEE_LIST[selectedBrand].forEach(({ position, label }) => {
-        const marker = new google.maps.Marker({
-          position,
-          map: mapInstance,
-          // label,
-          clickable: true,
-          icon: {
-            url: starbucks,
-            scaledSize: new google.maps.Size(20, 20),
-          }
-        });
-        setMarkers(currentMarkers => [...currentMarkers, marker])
-      })
+      if (selectedBrand === 'STARBUCKS') {
+        COFEE_LIST[selectedBrand].forEach(({ position, label }) => {
+          const marker = new google.maps.Marker({
+            position,
+            map: mapInstance,
+            // label,
+            clickable: true,
+            icon: {
+              url: starbucks,
+              scaledSize: new google.maps.Size(20, 20),
+            }
+          });
+          setMarkers(currentMarkers => [...currentMarkers, marker])
+        })
+      } else if(selectedBrand === 'BLUE_BOTTLE') {
+        COFEE_LIST[selectedBrand].forEach(({ position, label }) => {
+          const marker = new google.maps.Marker({
+            position,
+            map: mapInstance,
+            // label,
+            clickable: true,
+            icon: {
+              url: blueBottle,
+              scaledSize: new google.maps.Size(10, 20),
+            }
+          });
+          setMarkers(currentMarkers => [...currentMarkers, marker])
+        })
+      } else {
+        COFEE_LIST[selectedBrand].forEach(({ position, label }) => {
+          const marker = new google.maps.Marker({
+            position,
+            map: mapInstance,
+            clickable: true,
+            icon: {
+              url: peets,
+              scaledSize: new google.maps.Size(20, 20),
+            }
+          });
+          setMarkers(currentMarkers => [...currentMarkers, marker])
+        })
+      }
     }
   }, [mapInstance, selectedBrand])
 
