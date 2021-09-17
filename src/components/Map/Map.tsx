@@ -27,7 +27,7 @@ const Map = () => {
         const marker = new google.maps.Marker({
           position,
           map: mapInstance,
-          label,
+          // label,
           clickable: true,
           icon: {
             url: starbucks,
