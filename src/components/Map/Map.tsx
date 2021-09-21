@@ -3,7 +3,7 @@ import { COFEE_LIST } from './constants'
 import starbucks from '../../icon/starbucks_logo.png'
 import blueBottle from '../../icon/blue_bottle_logo.png'
 import peets from '../../icon/peets_logo.png'
-
+import gregorys from '../../icon/gregorys.png'
 
 type BrandType = keyof typeof COFEE_LIST
 
@@ -15,7 +15,7 @@ const Map = () => {
   useEffect(() => {
     if (google) {
       const map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
-        center: { lat: 40.758169722616834,lng: -73.9855318731300 },
+        center: { lat: 40.73289966190088,lng: -73.99639321053182 },
         zoom: 13,
         draggable: true,
       });
@@ -49,20 +49,34 @@ const Map = () => {
             clickable: true,
             icon: {
               url: blueBottle,
-              scaledSize: new google.maps.Size(10, 20),
+              scaledSize: new google.maps.Size(20, 40),
             }
           });
           setMarkers(currentMarkers => [...currentMarkers, marker])
         })
-      } else {
+      } else if(selectedBrand === 'GREGORYS_COFFEE') {
         COFEE_LIST[selectedBrand].forEach(({ position, label }) => {
+          const marker = new google.maps.Marker({
+            position,
+            map: mapInstance,
+            // label,
+            clickable: true,
+            icon: {
+              url: gregorys,
+              scaledSize: new google.maps.Size(30, 60),
+            }
+          });
+          setMarkers(currentMarkers => [...currentMarkers, marker])
+        })
+      }else {
+        COFEE_LIST[selectedBrand].forEach(({ position, label}) => {
           const marker = new google.maps.Marker({
             position,
             map: mapInstance,
             clickable: true,
             icon: {
               url: peets,
-              scaledSize: new google.maps.Size(20, 20),
+              scaledSize: new google.maps.Size(40, 40),
             }
           });
           setMarkers(currentMarkers => [...currentMarkers, marker])
@@ -72,18 +86,23 @@ const Map = () => {
   }, [mapInstance, selectedBrand])
 
   const onSelectBrand = (brand: BrandType) => {
-    if (brand !== selectedBrand) {
-      markers.forEach(marker => marker.setMap(null));
+    // if (brand !== selectedBrand)
+      // markers.forEach(marker => marker.setMap(null));
       setSelectedBrand(brand)
-    }
+    // }
+  }
+
+  const clear = () => {
+    markers.forEach(marker => marker.setMap(null))
+    setSelectedBrand(undefined)
   }
 
   return (
     <div style={{ position: 'relative' }}>
-      <div id="map" style={{ height: '50vw', width: '50vw', margin:'auto' }} />
+      <div id="map" style={{ height: '100vh', width: '100vh', margin:'auto' }} />
       <div style={{
         position: "absolute",
-        backgroundColor: 'white',
+        backgroundColor: 'none',
         padding: 16,
         zIndex: 9,
         top: 0,
@@ -95,6 +114,7 @@ const Map = () => {
             {brand}
           </button>
         ))}
+        <button onClick={()=>{clear()}}>Clear All</button>
       </div>
     </div>);
 }
