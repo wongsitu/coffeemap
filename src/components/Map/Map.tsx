@@ -7,6 +7,16 @@ import peets from '../../icon/peets_logo.png'
 
 type BrandType = keyof typeof COFEE_LIST
 
+const myStyles: google.maps.MapTypeStyle[] = [
+  {
+    featureType: "poi",
+    elementType: "labels",
+    stylers: [
+      { visibility: "off" }
+    ]
+  }
+];
+
 const Map = () => {
   const [markers, setMarkers] = useState<google.maps.Marker[]>([])
   const [selectedBrand, setSelectedBrand] = useState<BrandType | undefined>(undefined)
@@ -15,9 +25,10 @@ const Map = () => {
   useEffect(() => {
     if (google) {
       const map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
-        center: { lat: 40.758169722616834,lng: -73.9855318731300 },
+        center: { lat: 40.758169722616834, lng: -73.9855318731300 },
         zoom: 13,
         draggable: true,
+        styles: myStyles
       });
 
       setMapInstance(map)
@@ -27,7 +38,7 @@ const Map = () => {
   useEffect(() => {
     if (selectedBrand) {
       if (selectedBrand === 'STARBUCKS') {
-        COFEE_LIST[selectedBrand].forEach(({ position, label }) => {
+        COFEE_LIST[selectedBrand].forEach(({ position, label, address }) => {
           const marker = new google.maps.Marker({
             position,
             map: mapInstance,
@@ -38,10 +49,17 @@ const Map = () => {
               scaledSize: new google.maps.Size(20, 20),
             }
           });
+          const infoWindow = new google.maps.InfoWindow({
+            content: `${label || ''}, ${address || ''}`,
+          })
+
+          marker.addListener('click', () => {
+            infoWindow.open(mapInstance, marker)
+          })
           setMarkers(currentMarkers => [...currentMarkers, marker])
         })
-      } else if(selectedBrand === 'BLUE_BOTTLE') {
-        COFEE_LIST[selectedBrand].forEach(({ position, label }) => {
+      } else if (selectedBrand === 'BLUE_BOTTLE') {
+        COFEE_LIST[selectedBrand].forEach(({ position, label, address }) => {
           const marker = new google.maps.Marker({
             position,
             map: mapInstance,
@@ -52,10 +70,17 @@ const Map = () => {
               scaledSize: new google.maps.Size(10, 20),
             }
           });
+          const infoWindow = new google.maps.InfoWindow({
+            content: `${label || ''}, ${address || ''}`,
+          })
+
+          marker.addListener('click', () => {
+            infoWindow.open(mapInstance, marker)
+          })
           setMarkers(currentMarkers => [...currentMarkers, marker])
         })
       } else {
-        COFEE_LIST[selectedBrand].forEach(({ position, label }) => {
+        COFEE_LIST[selectedBrand].forEach(({ position, label, address }) => {
           const marker = new google.maps.Marker({
             position,
             map: mapInstance,
@@ -65,6 +90,13 @@ const Map = () => {
               scaledSize: new google.maps.Size(20, 20),
             }
           });
+          const infoWindow = new google.maps.InfoWindow({
+            content: `${label || ''}, ${address || ''}`,
+          })
+
+          marker.addListener('click', () => {
+            infoWindow.open(mapInstance, marker)
+          })
           setMarkers(currentMarkers => [...currentMarkers, marker])
         })
       }
@@ -80,7 +112,7 @@ const Map = () => {
 
   return (
     <div style={{ position: 'relative' }}>
-      <div id="map" style={{ height: '50vw', width: '50vw', margin:'auto' }} />
+      <div id="map" style={{ height: '50vw', width: '50vw', margin: 'auto' }} />
       <div style={{
         position: "absolute",
         backgroundColor: 'white',
