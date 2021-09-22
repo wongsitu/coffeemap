@@ -27,7 +27,7 @@ const Map = () => {
   useEffect(() => {
     if (selectedBrand) {
       if (selectedBrand === 'STARBUCKS') {
-        COFEE_LIST[selectedBrand].forEach(({ position, label }) => {
+        COFEE_LIST[selectedBrand].forEach(({ position, label, address, zip }) => {
           const marker = new google.maps.Marker({
             position,
             map: mapInstance,
@@ -39,9 +39,18 @@ const Map = () => {
             }
           });
           setMarkers(currentMarkers => [...currentMarkers, marker])
+          const infowindow = new google.maps.InfoWindow({
+            content: `<div>${label}<br><br>${address}<br>NY,${zip}</div>`
+          });
+          marker.addListener("click", () => {
+            infowindow.open({
+              anchor: marker,
+              shouldFocus: false,
+            });
+          });
         })
       } else if(selectedBrand === 'BLUE_BOTTLE') {
-        COFEE_LIST[selectedBrand].forEach(({ position, label }) => {
+        COFEE_LIST[selectedBrand].forEach(({ position, label, address, zip }) => {
           const marker = new google.maps.Marker({
             position,
             map: mapInstance,
@@ -53,9 +62,18 @@ const Map = () => {
             }
           });
           setMarkers(currentMarkers => [...currentMarkers, marker])
+          const infowindow = new google.maps.InfoWindow({
+            content: `<div>${label}<br><br>${address}<br>NY,${zip}</div>`
+          });
+          marker.addListener("click", () => {
+            infowindow.open({
+              anchor: marker,
+              shouldFocus: false,
+            });
+          });
         })
       } else if(selectedBrand === 'GREGORYS_COFFEE') {
-        COFEE_LIST[selectedBrand].forEach(({ position, label }) => {
+        COFEE_LIST[selectedBrand].forEach(({ position, label, address, zip }) => {
           const marker = new google.maps.Marker({
             position,
             map: mapInstance,
@@ -67,9 +85,18 @@ const Map = () => {
             }
           });
           setMarkers(currentMarkers => [...currentMarkers, marker])
+          const infowindow = new google.maps.InfoWindow({
+            content: `<div>${label}<br><br>${address}<br>NY,${zip}</div>`
+          });
+          marker.addListener("click", () => {
+            infowindow.open({
+              anchor: marker,
+              shouldFocus: false,
+            });
+          });
         })
       }else {
-        COFEE_LIST[selectedBrand].forEach(({ position, label}) => {
+        COFEE_LIST[selectedBrand].forEach(({ position, label, address, zip}) => {
           const marker = new google.maps.Marker({
             position,
             map: mapInstance,
@@ -80,6 +107,15 @@ const Map = () => {
             }
           });
           setMarkers(currentMarkers => [...currentMarkers, marker])
+          const infowindow = new google.maps.InfoWindow({
+            content: `<div>${label}<br><br>${address}<br>NY,${zip}</div>`
+          });
+          marker.addListener("click", () => {
+            infowindow.open({
+              anchor: marker,
+              shouldFocus: false,
+            });
+          });
         })
       }
     }
