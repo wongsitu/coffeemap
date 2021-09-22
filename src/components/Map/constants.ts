@@ -9,15 +9,117 @@ interface CoffeeType {
   zip?: number
 }
 
+const GREGORYS_COFFEE: CoffeeType[] = [
+  {
+    position: { lat: 40.75559683987518, lng: -73.97830668109947 },
+    label: "Gregorys",
+    address: "12 E 46th St",
+    zip:10017
+  },{
+    position: { lat: 40.75599061492878, lng: -73.98260483495287 },
+    label: "Gregorys",
+    address: "58 W 44th St",
+    zip:10036
+  },{
+    position: { lat: 40.74099921853827, lng: -73.98555506692702 },
+    label: "Gregorys",
+    address: "327 Park Ave S",
+    zip:10010
+  },{
+    position: { lat: 40.707974046296066, lng: -74.01200011645132 },
+    label: "Gregorys",
+    address: "42 Broadway",
+    zip:10004
+  },{
+    position: { lat: 40.74673115680224, lng: -73.98256485671952 },
+    label: "Gregorys",
+    address: "48 E 33rd St",
+    zip:10010
+  },{
+    position: { lat: 40.74785285407848, lng: -73.989113946413 },
+    label: "Gregorys",
+    address: "874 6th Ave",
+    zip:10001
+  },{
+    position: { lat: 40.76580853715856, lng: -73.95781515495865 },
+    label: "Gregorys",
+    address: "1273 1st Ave",
+    zip:10065
+  },{
+    position: { lat: 40.72868160146308, lng: -73.99596691646953 },
+    label: "Gregorys",
+    address: "649 Broadway",
+    zip:10012
+  },{
+    position: { lat: 40.76115186912062, lng: -73.97294437591276 },
+    label: "Gregorys",
+    address: "551 Madison Ave",
+    zip:10022
+  },{
+    position: { lat: 40.74856195525697, lng: -73.99282501289196 },
+    label: "Gregorys",
+    address: "356 7th Ave",
+    zip:10001
+  },{
+    position: { lat: 40.745129579390316, lng: -73.991525631804 },
+    label: "Gregorys",
+    address: "775 6th Ave",
+    zip:10001
+  },{
+    position: { lat: 40.7517161484113, lng: -73.98075359141328 },
+    label: "Gregorys",
+    address: "20 E 40th St",
+    zip:10016
+  },{
+    position: { lat: 40.75385427420075, lng: -73.98736621159276 },
+    label: "Gregorys",
+    address: "1407 Broadway",
+    zip:10016
+  },{
+    position: { lat: 40.758100474125115, lng: -73.96939244772541 },
+    label: "Gregorys",
+    address: "880 3rd Ave",
+    zip:10022
+  },{
+    position: { lat: 40.75166468816123, lng: -73.97633215641743 },
+    label: "Gregorys",
+    address: "122 E 42nd St",
+    zip:10168
+  },{
+    position: { lat: 40.75410740223604, lng: -73.9920443639084 },
+    label: "Gregorys",
+    address: "520 8th Ave",
+    zip:10018
+  },{
+    position: { lat: 40.761511172488916, lng: -73.98339841697305 },
+    label: "Gregorys",
+    address: "762 7th Ave",
+    zip:10019
+  },{
+    position: { lat: 40.705454252708634, lng: -74.00679724298243 },
+    label: "Gregorys",
+    address: "100 Wall St",
+    zip:10005
+  },{
+    position: { lat: 40.75888044401816, lng: -73.97448326595604 },
+    label: "Gregorys",
+    address: "485 Lexington Ave",
+    zip:10022
+  },{
+    position: { lat: 40.76005782801429, lng: -73.99122428588446 },
+    label: "Gregorys",
+    address: "630 9th Ave",
+    zip:10036
+  }
+];
+
 const PEETS_COFFEE: CoffeeType[] = [
   {
-    position: { lat: 40.78, lng: -73.935242 },
+    position: { lat: 40.73470270293867, lng: -73.9909727893496 },
     label: "Peets",
-  },
-  {
-    position: { lat: 40.79, lng: -73.9 },
-    label: "Peets",
-  },
+    address: "853 Broadway",
+    zip:10003
+  }
 ];
 
 const BLUE_BOTTLE: CoffeeType[] = [
@@ -759,4 +861,5 @@ export const COFEE_LIST = {
   PEETS_COFFEE,
   BLUE_BOTTLE,
   STARBUCKS,
+  GREGORYS_COFFEE
 };
