@@ -49,13 +49,6 @@ const Map = () => {
               scaledSize: new google.maps.Size(20, 20),
             }
           });
-          const infoWindow = new google.maps.InfoWindow({
-            content: `${label || ''}, ${address || ''}`,
-          })
-
-          marker.addListener('click', () => {
-            infoWindow.open(mapInstance, marker)
-          })
           setMarkers(currentMarkers => [...currentMarkers, marker])
           const infowindow = new google.maps.InfoWindow({
             content: `<div>${label}<br><br>${address}<br>NY,${zip}</div>`
@@ -79,13 +72,6 @@ const Map = () => {
               scaledSize: new google.maps.Size(20, 40),
             }
           });
-          const infoWindow = new google.maps.InfoWindow({
-            content: `${label || ''}, ${address || ''}`,
-          })
-
-          marker.addListener('click', () => {
-            infoWindow.open(mapInstance, marker)
-          })
           setMarkers(currentMarkers => [...currentMarkers, marker])
           const infowindow = new google.maps.InfoWindow({
             content: `<div>${label}<br><br>${address}<br>NY,${zip}</div>`
@@ -131,13 +117,7 @@ const Map = () => {
               scaledSize: new google.maps.Size(40, 40),
             }
           });
-          const infoWindow = new google.maps.InfoWindow({
-            content: `${label || ''}, ${address || ''}`,
-          })
 
-          marker.addListener('click', () => {
-            infoWindow.open(mapInstance, marker)
-          })
           setMarkers(currentMarkers => [...currentMarkers, marker])
           const infowindow = new google.maps.InfoWindow({
             content: `<div>${label}<br><br>${address}<br>NY,${zip}</div>`
