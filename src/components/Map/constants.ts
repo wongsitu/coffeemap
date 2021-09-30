@@ -6,7 +6,16 @@ interface CoffeeType {
   label?: string;
   title?: string;
   address?: string;
-  zip?: number
+  zip?: number;
+  hours?: {
+    mon: string;
+    tue: string;
+    wed: string;
+    thu: string;
+    fri: string;
+    sat: string;
+    sun: string;
+  }
 }
 
 const GREGORYS_COFFEE: CoffeeType[] = [
@@ -14,102 +23,282 @@ const GREGORYS_COFFEE: CoffeeType[] = [
     position: { lat: 40.75559683987518, lng: -73.97830668109947 },
     label: "Gregorys",
     address: "12 E 46th St",
-    zip:10017
+    zip: 10017,
+    hours: {
+      mon:`7AM–5PM`,
+      tue:`7AM–5PM`,
+      wed:`7AM–5PM`,
+      thu:`7AM–5PM`,
+      fri:`7AM–4PM`,
+      sat:`Closed`,
+      sun:`Closed`,
+    }
   },{
     position: { lat: 40.75599061492878, lng: -73.98260483495287 },
     label: "Gregorys",
     address: "58 W 44th St",
-    zip:10036
+    zip: 10036,
+    hours: {
+      mon:`7AM–5PM`,
+      tue:`7AM–5PM`,
+      wed:`7AM–5PM`,
+      thu:`7AM–5PM`,
+      fri:`7AM–4PM`,
+      sat:`Closed`,
+      sun:`Closed`,
+    }
   },{
     position: { lat: 40.74099921853827, lng: -73.98555506692702 },
     label: "Gregorys",
     address: "327 Park Ave S",
-    zip:10010
+    zip: 10010,
+    hours: {
+      mon:`7AM–5PM`,
+      tue:`7AM–5PM`,
+      wed:`7AM–5PM`,
+      thu:`7AM–5PM`,
+      fri:`7AM–5PM`,
+      sat:`7AM–5PM`,
+      sun:`7AM–5PM`,
+    }
   },{
     position: { lat: 40.707974046296066, lng: -74.01200011645132 },
     label: "Gregorys",
     address: "42 Broadway",
-    zip:10004
+    zip: 10004,
+    hours: {
+      mon:`7AM–5PM`,
+      tue:`7AM–5PM`,
+      wed:`7AM–5PM`,
+      thu:`7AM–5PM`,
+      fri:`7AM–5PM`,
+      sat:`7AM–4PM`,
+      sun:`7AM–4PM`,
+    }
   },{
     position: { lat: 40.74673115680224, lng: -73.98256485671952 },
     label: "Gregorys",
     address: "48 E 33rd St",
-    zip:10010
+    zip: 10010,
+    hours: {
+      mon:`7AM–5PM`,
+      tue:`7AM–5PM`,
+      wed:`7AM–5PM`,
+      thu:`7AM–5PM`,
+      fri:`7AM–5PM`,
+      sat:`8AM–5PM`,
+      sun:`8AM–5PM`,
+    }
   },{
     position: { lat: 40.74785285407848, lng: -73.989113946413 },
     label: "Gregorys",
     address: "874 6th Ave",
-    zip:10001
+    zip: 10001,
+    hours: {
+      mon:`7AM–7PM`,
+      tue:`7AM–7PM`,
+      wed:`7AM–7PM`,
+      thu:`7AM–7PM`,
+      fri:`7AM–7PM`,
+      sat:`8AM–5PM`,
+      sun:`8AM–5PM`,
+    }
   },{
     position: { lat: 40.76580853715856, lng: -73.95781515495865 },
     label: "Gregorys",
     address: "1273 1st Ave",
-    zip:10065
+    zip: 10065,
+    hours: {
+      mon:`6AM–6PM`,
+      tue:`6AM–6PM`,
+      wed:`6AM–6PM`,
+      thu:`6AM–6PM`,
+      fri:`6AM–6PM`,
+      sat:`7AM–5PM`,
+      sun:`7AM–5PM`,
+    }
   },{
     position: { lat: 40.72868160146308, lng: -73.99596691646953 },
     label: "Gregorys",
     address: "649 Broadway",
-    zip:10012
+    zip: 10012,
+    hours: {
+      mon:`7AM–6PM`,
+      tue:`7AM–6PM`,
+      wed:`7AM–6PM`,
+      thu:`7AM–6PM`,
+      fri:`7AM–6PM`,
+      sat:`8AM–6PM`,
+      sun:`8AM–6PM`,
+    }
   },{
     position: { lat: 40.76115186912062, lng: -73.97294437591276 },
     label: "Gregorys",
     address: "551 Madison Ave",
-    zip:10022
+    zip: 10022,
+    hours: {
+      mon:`6:30AM–5PM`,
+      tue:`6:30AM–5PM`,
+      wed:`6:30AM–5PM`,
+      thu:`6:30AM–5PM`,
+      fri:`6:30AM–4PM`,
+      sat:`Closed`,
+      sun:`Closed`,
+    }
   },{
     position: { lat: 40.74856195525697, lng: -73.99282501289196 },
     label: "Gregorys",
     address: "356 7th Ave",
-    zip:10001
+    zip: 10001,
+    hours: {
+      mon:`7AM–5PM`,
+      tue:`7AM–5PM`,
+      wed:`7AM–5PM`,
+      thu:`7AM–5PM`,
+      fri:`7AM–4PM`,
+      sat:`Closed`,
+      sun:`Closed`,
+    }
   },{
     position: { lat: 40.745129579390316, lng: -73.991525631804 },
     label: "Gregorys",
     address: "775 6th Ave",
-    zip:10001
+    zip: 10001,
+    hours: {
+      mon:`7AM–7PM`,
+      tue:`7AM–7PM`,
+      wed:`7AM–7PM`,
+      thu:`7AM–7PM`,
+      fri:`7AM–7PM`,
+      sat:`7AM–6PM`,
+      sun:`7AM–6PM`,
+    }
   },{
     position: { lat: 40.7517161484113, lng: -73.98075359141328 },
     label: "Gregorys",
     address: "20 E 40th St",
-    zip:10016
+    zip: 10016,
+    hours: {
+      mon:`7AM–5PM`,
+      tue:`7AM–5PM`,
+      wed:`7AM–5PM`,
+      thu:`7AM–5PM`,
+      fri:`7AM–4PM`,
+      sat:`Closed`,
+      sun:`Closed`,
+    }
   },{
     position: { lat: 40.75385427420075, lng: -73.98736621159276 },
     label: "Gregorys",
     address: "1407 Broadway",
-    zip:10016
+    zip: 10016,
+    hours: {
+      mon:`7AM–5PM`,
+      tue:`7AM–5PM`,
+      wed:`7AM–5PM`,
+      thu:`7AM–5PM`,
+      fri:`7AM–4PM`,
+      sat:`Closed`,
+      sun:`Closed`,
+    }
   },{
     position: { lat: 40.758100474125115, lng: -73.96939244772541 },
     label: "Gregorys",
     address: "880 3rd Ave",
-    zip:10022
+    zip: 10022,
+    hours: {
+      mon:`7AM–4PM`,
+      tue:`7AM–4PM`,
+      wed:`7AM–4PM`,
+      thu:`7AM–4PM`,
+      fri:`7AM–4PM`,
+      sat:`Closed`,
+      sun:`Closed`,
+    }
   },{
     position: { lat: 40.75166468816123, lng: -73.97633215641743 },
     label: "Gregorys",
     address: "122 E 42nd St",
-    zip:10168
+    zip: 10168,
+    hours: {
+      mon:`7AM–5PM`,
+      tue:`7AM–5PM`,
+      wed:`7AM–5PM`,
+      thu:`7AM–5PM`,
+      fri:`7AM–5PM`,
+      sat:`8AM–5PM`,
+      sun:`Closed`,
+    }
   },{
     position: { lat: 40.75410740223604, lng: -73.9920443639084 },
     label: "Gregorys",
     address: "520 8th Ave",
-    zip:10018
+    zip: 10018,
+    hours: {
+      mon:`7AM–7PM`,
+      tue:`7AM–7PM`,
+      wed:`7AM–7PM`,
+      thu:`7AM–7PM`,
+      fri:`7AM–7PM`,
+      sat:`8AM–4PM`,
+      sun:`8AM–4PM`,
+    }
   },{
     position: { lat: 40.761511172488916, lng: -73.98339841697305 },
     label: "Gregorys",
     address: "762 7th Ave",
-    zip:10019
+    zip: 10019,
+    hours: {
+      mon:`6:30AM–7PM`,
+      tue:`6:30AM–7PM`,
+      wed:`6:30AM–7PM`,
+      thu:`6:30AM–7PM`,
+      fri:`6:30AM–7PM`,
+      sat:`7AM–5PM`,
+      sun:`7AM–5PM`,
+    }
   },{
     position: { lat: 40.705454252708634, lng: -74.00679724298243 },
     label: "Gregorys",
     address: "100 Wall St",
-    zip:10005
+    zip: 10005,
+    hours: {
+      mon:`7AM–4PM`,
+      tue:`7AM–4PM`,
+      wed:`7AM–4PM`,
+      thu:`7AM–4PM`,
+      fri:`7AM–4PM`,
+      sat:`Closed`,
+      sun:`Closed`,
+    }
   },{
     position: { lat: 40.75888044401816, lng: -73.97448326595604 },
     label: "Gregorys",
     address: "485 Lexington Ave",
-    zip:10022
+    zip: 10022,
+    hours: {
+      mon:`6:30AM–5PM`,
+      tue:`6:30AM–5PM`,
+      wed:`6:30AM–5PM`,
+      thu:`6:30AM–5PM`,
+      fri:`6:30AM–4PM`,
+      sat:`Closed`,
+      sun:`Closed`,
+    }
   },{
     position: { lat: 40.76005782801429, lng: -73.99122428588446 },
     label: "Gregorys",
     address: "630 9th Ave",
-    zip:10036
+    zip: 10036,
+    hours: {
+      mon:`7AM–5PM`,
+      tue:`7AM–5PM`,
+      wed:`7AM–5PM`,
+      thu:`7AM–5PM`,
+      fri:`7AM–5PM`,
+      sat:`7AM–5PM`,
+      sun:`7AM–5PM`,
+    }
   }
 ];
 
@@ -118,7 +307,16 @@ const PEETS_COFFEE: CoffeeType[] = [
     position: { lat: 40.73470270293867, lng: -73.9909727893496 },
     label: "Peets",
     address: "853 Broadway",
-    zip:10003
+    zip: 10003,
+    hours: {
+      mon:`7AM–6PM`,
+      tue:`7AM–6PM`,
+      wed:`7AM–6PM`,
+      thu:`7AM–6PM`,
+      fri:`7AM–6PM`,
+      sat:`10AM–4PM`,
+      sun:`Closed`,
+    }
   }
 ];
 
@@ -127,62 +325,170 @@ const BLUE_BOTTLE: CoffeeType[] = [
     position: { lat: 40.77934364509003, lng: -73.9808783876117 },
     label: "Blue bottle",
     address: "279 Amsterdam Ave",
-    zip:10023
+    zip: 10023,
+    hours: {
+      mon:`6:30AM–7PM`,
+      tue:`6:30AM–7PM`,
+      wed:`6:30AM–7PM`,
+      thu:`6:30AM–7PM`,
+      fri:`6:30AM–7PM`,
+      sat:`6:30AM-7PM`,
+      sun:`6:30AM-7PM`,
+    }
   },{
     position: { lat: 40.71190154045644, lng: -74.01224875592692 },
     label: "Blue bottle",
     address: "22 Broad St",
-    zip:10005
+    zip: 10005,
+    hours: {
+      mon:`6:30AM–6PM`,
+      tue:`6:30AM–6PM`,
+      wed:`6:30AM–6PM`,
+      thu:`6:30AM–6PM`,
+      fri:`6:30AM–6PM`,
+      sat:`8AM–6PM`,
+      sun:`8AM-6PM`,
+    }
   },{
     position: { lat: 40.75794777735989, lng: -73.98443961511916 },
     label: "Blue bottle",
     address: "54 W 40th St.",
-    zip:10018
+    zip: 10018,
+    hours: {
+      mon:`6:30AM–5PM`,
+      tue:`6:30AM–6PM`,
+      wed:`6:30AM–5PM`,
+      thu:`6:30AM–6PM`,
+      fri:`6:30AM–6PM`,
+      sat:`7AM-7PM`,
+      sun:`7AM-7PM`,
+    }
   },{
     position: { lat: 40.741432030992115, lng: -73.9858987365095},
     label: "Blue bottle",
     address: "257 Park Ave South",
-    zip:10010
+    zip: 10010,
+    hours: {
+      mon:`6:30AM–7PM`,
+      tue:`6:30AM–7PM`,
+      wed:`6:30AM–7PM`,
+      thu:`6:30AM–7PM`,
+      fri:`6:30AM–7PM`,
+      sat:`7AM-7PM`,
+      sun:`7AM-7PM`,
+    }
   },{
     position: { lat: 40.754241846288416, lng: -74.00186324126891},
     label: "Blue bottle",
     address: "20 Hudson Yards #228",
-    zip:10018
+    zip: 10018,
+    hours: {
+      mon:`8AM–9PM`,
+      tue:`7AM–7PM`,
+      wed:`7AM–7PM`,
+      thu:`7AM–9PM`,
+      fri:`7AM–9PM`,
+      sat:`7AM-9PM`,
+      sun:`8AM-7PM`,
+    }
   },{
     position: { lat: 40.7608733693555, lng: -73.97602820613578},
     label: "Blue bottle",
     address: "10 E 53rd Street",
-    zip:10022
+    zip: 10022,
+    hours: {
+      mon:`6:30AM–6PM`,
+      tue:`6:30AM–6PM`,
+      wed:`6:30AM–6PM`,
+      thu:`6:30AM–6PM`,
+      fri:`6:30AM–6PM`,
+      sat:`8AM-6PM`,
+      sun:`8AM-6PM`,
+    }
   },{
     position: { lat: 40.76412387433224, lng: -73.97868895726243},
     label: "Blue bottle",
     address: "1345 Avenue of the Americas",
-    zip:10105
+    zip: 10105,
+    hours: {
+      mon:`6:30AM–6PM`,
+      tue:`6:30AM–6PM`,
+      wed:`6:30AM–6PM`,
+      thu:`6:30AM–6PM`,
+      fri:`6:30AM–6PM`,
+      sat:`8AM-6PM`,
+      sun:`8AM-6PM`,
+    }
   },{
     position: { lat: 40.809289429873004, lng: -73.96409774132287},
     label: "Blue bottle",
     address: "2901 Broadway",
-    zip:10025
+    zip: 10025,
+    hours: {
+      mon:`6AM–7PM`,
+      tue:`6AM–7PM`,
+      wed:`6AM–7PM`,
+      thu:`6AM–7PM`,
+      fri:`6AM–7PM`,
+      sat:`7AM–7PM`,
+      sun:`7AM-7PM`,
+    }
   },{
     position: { lat: 40.75255135225154, lng: -73.99594092424503},
     label: "Blue bottle",
     address: "441 8th Ave",
-    zip:10001
+    zip: 10001,
+    hours: {
+      mon:`5AM–2PM`,
+      tue:`5AM–6PM`,
+      wed:`5AM–6PM`,
+      thu:`5AM–6PM`,
+      fri:`5AM–6PM`,
+      sat:`5AM-6PM`,
+      sun:`5AM-6PM`,
+    }
   },{
     position: { lat: 40.72035874703207, lng: -74.00203490463252},
     label: "Blue bottle",
     address: "396 Broadway",
-    zip:10013
+    zip: 10013,
+    hours: {
+      mon:`6:30AM–7PM`,
+      tue:`6:30AM–7PM`,
+      wed:`6:30AM–7PM`,
+      thu:`6:30AM–7PM`,
+      fri:`6:30AM–7PM`,
+      sat:`6:30AM-7PM`,
+      sun:`6:30AM-7PM`,
+    }
   },{
     position: { lat: 40.735579010462764, lng: -73.99259352966692},
     label: "Blue bottle",
     address: "101 University Place",
-    zip:10003
+    zip: 10003,
+    hours: {
+      mon:`7AM–3PM`,
+      tue:`7AM–3PM`,
+      wed:`7AM–3PM`,
+      thu:`7AM–3PM`,
+      fri:`7AM–3PM`,
+      sat:`7AM-3PM`,
+      sun:`7AM-3PM`,
+    }
   },{
     position: { lat: 40.7132027195362, lng: -74.01096129550908},
     label: "Blue bottle",
     address: "150 Greenwich St",
-    zip:10007
+    zip: 10007,
+    hours: {
+      mon:`6:30AM–7PM`,
+      tue:`6:30AM–7PM`,
+      wed:`6:30AM–7PM`,
+      thu:`6:30AM–7PM`,
+      fri:`6:30AM–7PM`,
+      sat:`Closed`,
+      sun:`7AM-7PM`,
+    }
   },
 ];
 

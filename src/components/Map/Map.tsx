@@ -26,7 +26,7 @@ const Map = () => {
     if (google) {
       const map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
         center: { lat: 40.73289966190088, lng: -73.99639321053182 },
-        zoom: 13,
+        zoom: 14,
         draggable: true,
         styles: myStyles
       });
@@ -38,7 +38,7 @@ const Map = () => {
   useEffect(() => {
     if (selectedBrand) {
       if (selectedBrand === 'STARBUCKS') {
-        COFEE_LIST[selectedBrand].forEach(({ position, label, address, zip }) => {
+        COFEE_LIST[selectedBrand].forEach(({ position, label, address, zip, hours }) => {
           const marker = new google.maps.Marker({
             position,
             map: mapInstance,
@@ -51,7 +51,17 @@ const Map = () => {
           });
           setMarkers(currentMarkers => [...currentMarkers, marker])
           const infowindow = new google.maps.InfoWindow({
-            content: `<div>${label}<br><br>${address}<br>NY,${zip}</div>`
+            content: `<div>${label}<br><br>${address}<br>NY,${zip}
+                        <div class='hours'>
+                          <br>Mon: <span class='times'>${hours?.mon}</span>
+                          <br>Tue: <span class='times'>${hours?.tue}</span>
+                          <br>Wed: <span class='times'>${hours?.wed}</span>
+                          <br>Thu: <span class='times'>${hours?.thu}</span>
+                          <br>Fri: <span class='times'>${hours?.fri}</span>
+                          <br>Sat: <span class='times'>${hours?.sat}</span>
+                          <br>Sun: <span class='times'>${hours?.sun}</span>
+                        </div>
+                      </div>`,
           });
           marker.addListener("click", () => {
             infowindow.open({
@@ -61,7 +71,7 @@ const Map = () => {
           });
         })
       } else if (selectedBrand === 'BLUE_BOTTLE') {
-        COFEE_LIST[selectedBrand].forEach(({ position, label, address, zip }) => {
+        COFEE_LIST[selectedBrand].forEach(({ position, label, address, zip, hours }) => {
           const marker = new google.maps.Marker({
             position,
             map: mapInstance,
@@ -74,7 +84,17 @@ const Map = () => {
           });
           setMarkers(currentMarkers => [...currentMarkers, marker])
           const infowindow = new google.maps.InfoWindow({
-            content: `<div>${label}<br><br>${address}<br>NY,${zip}</div>`
+            content: `<div>${label}<br><br>${address}<br>NY,${zip}
+                        <div class='hours'>
+                          <br>Mon: <span class='times'>${hours?.mon}</span>
+                          <br>Tue: <span class='times'>${hours?.tue}</span>
+                          <br>Wed: <span class='times'>${hours?.wed}</span>
+                          <br>Thu: <span class='times'>${hours?.thu}</span>
+                          <br>Fri: <span class='times'>${hours?.fri}</span>
+                          <br>Sat: <span class='times'>${hours?.sat}</span>
+                          <br>Sun: <span class='times'>${hours?.sun}</span>
+                        </div>
+                      </div>`,
           });
           marker.addListener("click", () => {
             infowindow.open({
@@ -84,7 +104,7 @@ const Map = () => {
           });
         })
       } else if (selectedBrand === 'GREGORYS_COFFEE') {
-        COFEE_LIST[selectedBrand].forEach(({ position, label, address, zip }) => {
+        COFEE_LIST[selectedBrand].forEach(({ position, label, address, zip, hours }) => {
           const marker = new google.maps.Marker({
             position,
             map: mapInstance,
@@ -93,11 +113,21 @@ const Map = () => {
             icon: {
               url: gregorys,
               scaledSize: new google.maps.Size(30, 60),
-            }
+            },
           });
           setMarkers(currentMarkers => [...currentMarkers, marker])
           const infowindow = new google.maps.InfoWindow({
-            content: `<div>${label}<br><br>${address}<br>NY,${zip}</div>`
+            content: `<div>${label}<br><br>${address}<br>NY,${zip}
+                        <div class='hours'>
+                          <br>Mon: <span class='times'>${hours?.mon}</span>
+                          <br>Tue: <span class='times'>${hours?.tue}</span>
+                          <br>Wed: <span class='times'>${hours?.wed}</span>
+                          <br>Thu: <span class='times'>${hours?.thu}</span>
+                          <br>Fri: <span class='times'>${hours?.fri}</span>
+                          <br>Sat: <span class='times'>${hours?.sat}</span>
+                          <br>Sun: <span class='times'>${hours?.sun}</span>
+                        </div>
+                      </div>`,
           });
           marker.addListener("click", () => {
             infowindow.open({
@@ -107,7 +137,7 @@ const Map = () => {
           });
         })
       } else {
-        COFEE_LIST[selectedBrand].forEach(({ position, label, address, zip }) => {
+        COFEE_LIST[selectedBrand].forEach(({ position, label, address, zip, hours }) => {
           const marker = new google.maps.Marker({
             position,
             map: mapInstance,
@@ -120,7 +150,17 @@ const Map = () => {
 
           setMarkers(currentMarkers => [...currentMarkers, marker])
           const infowindow = new google.maps.InfoWindow({
-            content: `<div>${label}<br><br>${address}<br>NY,${zip}</div>`
+            content: `<div>${label}<br><br>${address}<br>NY,${zip}
+                        <div class='hours'>
+                          <br>Mon: <span class='times'>${hours?.mon}</span>
+                          <br>Tue: <span class='times'>${hours?.tue}</span>
+                          <br>Wed: <span class='times'>${hours?.wed}</span>
+                          <br>Thu: <span class='times'>${hours?.thu}</span>
+                          <br>Fri: <span class='times'>${hours?.fri}</span>
+                          <br>Sat: <span class='times'>${hours?.sat}</span>
+                          <br>Sun: <span class='times'>${hours?.sun}</span>
+                        </div>
+                      </div>`,
           });
           marker.addListener("click", () => {
             infowindow.open({
@@ -147,13 +187,13 @@ const Map = () => {
 
   return (
     <div style={{ position: 'relative' }}>
-      <div id="map" style={{ height: '100vh', width: '100vh', margin: 'auto' }} />
+      <div id="map" style={{ height: '100vh', width: 'auto', margin: 'auto' }} />
       <div style={{
         position: "absolute",
         backgroundColor: 'none',
         padding: 16,
         zIndex: 9,
-        top: 0,
+        top: 80,
         display: "flex",
         flexDirection: 'column',
       }}>
@@ -162,7 +202,7 @@ const Map = () => {
             {brand}
           </button>
         ))}
-        <button onClick={() => { clear() }}>Clear All</button>
+        <button id='clear' onClick={() => { clear() }}>Clear All</button>
       </div>
     </div>);
 }
