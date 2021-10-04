@@ -1,11 +1,8 @@
 import { useEffect, useState } from 'react';
-import { COFEE_LIST } from './constants'
-import starbucks from '../../icon/starbucks_logo.png'
-import blueBottle from '../../icon/blue_bottle_logo.png'
-import peets from '../../icon/peets_logo.png'
-import gregorys from '../../icon/gregorys.png'
+import { renderToString } from 'react-dom/server';
 
-type BrandType = keyof typeof COFEE_LIST
+import { COFEE_LIST, iconUrls } from './constants'
+import { CoffeeType, BrandType } from './types';
 
 const myStyles: google.maps.MapTypeStyle[] = [
   {
@@ -16,6 +13,24 @@ const myStyles: google.maps.MapTypeStyle[] = [
     ]
   }
 ];
+
+const renderLabels = ({ label, address, zip, hours }: CoffeeType) => {
+  return renderToString(
+    <div>{label}<br />{address}<br />NY,{zip}
+      {hours && (
+        <div className='hours'>
+          <br />Mon: <span className='times'>${hours?.mon}</span>
+          <br />Tue: <span className='times'>${hours?.tue}</span>
+          <br />Wed: <span className='times'>${hours?.wed}</span>
+          <br />Thu: <span className='times'>${hours?.thu}</span>
+          <br />Fri: <span className='times'>${hours?.fri}</span>
+          <br />Sat: <span className='times'>${hours?.sat}</span>
+          <br />Sun: <span className='times'>${hours?.sun}</span>
+        </div>
+      )}
+    </div>
+  )
+}
 
 const Map = () => {
   const [markers, setMarkers] = useState<google.maps.Marker[]>([])
@@ -37,139 +52,30 @@ const Map = () => {
 
   useEffect(() => {
     if (selectedBrand) {
-      if (selectedBrand === 'STARBUCKS') {
-        COFEE_LIST[selectedBrand].forEach(({ position, label, address, zip, hours }) => {
-          const marker = new google.maps.Marker({
-            position,
-            map: mapInstance,
-            // label,
-            clickable: true,
-            icon: {
-              url: starbucks,
-              scaledSize: new google.maps.Size(20, 20),
-            }
-          });
-          setMarkers(currentMarkers => [...currentMarkers, marker])
-          const infowindow = new google.maps.InfoWindow({
-            content: `<div>${label}<br><br>${address}<br>NY,${zip}
-                        <div class='hours'>
-                          <br>Mon: <span class='times'>${hours?.mon}</span>
-                          <br>Tue: <span class='times'>${hours?.tue}</span>
-                          <br>Wed: <span class='times'>${hours?.wed}</span>
-                          <br>Thu: <span class='times'>${hours?.thu}</span>
-                          <br>Fri: <span class='times'>${hours?.fri}</span>
-                          <br>Sat: <span class='times'>${hours?.sat}</span>
-                          <br>Sun: <span class='times'>${hours?.sun}</span>
-                        </div>
-                      </div>`,
-          });
-          marker.addListener("click", () => {
-            infowindow.open({
-              anchor: marker,
-              shouldFocus: false,
-            });
-          });
-        })
-      } else if (selectedBrand === 'BLUE_BOTTLE') {
-        COFEE_LIST[selectedBrand].forEach(({ position, label, address, zip, hours }) => {
-          const marker = new google.maps.Marker({
-            position,
-            map: mapInstance,
-            // label,
-            clickable: true,
-            icon: {
-              url: blueBottle,
-              scaledSize: new google.maps.Size(20, 40),
-            }
-          });
-          setMarkers(currentMarkers => [...currentMarkers, marker])
-          const infowindow = new google.maps.InfoWindow({
-            content: `<div>${label}<br><br>${address}<br>NY,${zip}
-                        <div class='hours'>
-                          <br>Mon: <span class='times'>${hours?.mon}</span>
-                          <br>Tue: <span class='times'>${hours?.tue}</span>
-                          <br>Wed: <span class='times'>${hours?.wed}</span>
-                          <br>Thu: <span class='times'>${hours?.thu}</span>
-                          <br>Fri: <span class='times'>${hours?.fri}</span>
-                          <br>Sat: <span class='times'>${hours?.sat}</span>
-                          <br>Sun: <span class='times'>${hours?.sun}</span>
-                        </div>
-                      </div>`,
-          });
-          marker.addListener("click", () => {
-            infowindow.open({
-              anchor: marker,
-              shouldFocus: false,
-            });
-          });
-        })
-      } else if (selectedBrand === 'GREGORYS_COFFEE') {
-        COFEE_LIST[selectedBrand].forEach(({ position, label, address, zip, hours }) => {
-          const marker = new google.maps.Marker({
-            position,
-            map: mapInstance,
-            // label,
-            clickable: true,
-            icon: {
-              url: gregorys,
-              scaledSize: new google.maps.Size(30, 60),
-            },
-          });
-          setMarkers(currentMarkers => [...currentMarkers, marker])
-          const infowindow = new google.maps.InfoWindow({
-            content: `<div>${label}<br><br>${address}<br>NY,${zip}
-                        <div class='hours'>
-                          <br>Mon: <span class='times'>${hours?.mon}</span>
-                          <br>Tue: <span class='times'>${hours?.tue}</span>
-                          <br>Wed: <span class='times'>${hours?.wed}</span>
-                          <br>Thu: <span class='times'>${hours?.thu}</span>
-                          <br>Fri: <span class='times'>${hours?.fri}</span>
-                          <br>Sat: <span class='times'>${hours?.sat}</span>
-                          <br>Sun: <span class='times'>${hours?.sun}</span>
-                        </div>
-                      </div>`,
-          });
-          marker.addListener("click", () => {
-            infowindow.open({
-              anchor: marker,
-              shouldFocus: false,
-            });
-          });
-        })
-      } else {
-        COFEE_LIST[selectedBrand].forEach(({ position, label, address, zip, hours }) => {
-          const marker = new google.maps.Marker({
-            position,
-            map: mapInstance,
-            clickable: true,
-            icon: {
-              url: peets,
-              scaledSize: new google.maps.Size(40, 40),
-            }
-          });
+      COFEE_LIST[selectedBrand].forEach(({ position, label, address, zip, hours }) => {
+        const marker = new google.maps.Marker({
+          position,
+          map: mapInstance,
+          clickable: true,
+          icon: {
+            url: iconUrls[selectedBrand],
+            scaledSize: new google.maps.Size(20, 20),
+          }
+        });
+        setMarkers(currentMarkers => [...currentMarkers, marker])
 
-          setMarkers(currentMarkers => [...currentMarkers, marker])
-          const infowindow = new google.maps.InfoWindow({
-            content: `<div>${label}<br><br>${address}<br>NY,${zip}
-                        <div class='hours'>
-                          <br>Mon: <span class='times'>${hours?.mon}</span>
-                          <br>Tue: <span class='times'>${hours?.tue}</span>
-                          <br>Wed: <span class='times'>${hours?.wed}</span>
-                          <br>Thu: <span class='times'>${hours?.thu}</span>
-                          <br>Fri: <span class='times'>${hours?.fri}</span>
-                          <br>Sat: <span class='times'>${hours?.sat}</span>
-                          <br>Sun: <span class='times'>${hours?.sun}</span>
-                        </div>
-                      </div>`,
+        let content = renderLabels({ position, label, address, zip, hours });
+
+        const infowindow = new google.maps.InfoWindow({
+          content,
+        });
+        marker.addListener("click", () => {
+          infowindow.open({
+            anchor: marker,
+            shouldFocus: false,
           });
-          marker.addListener("click", () => {
-            infowindow.open({
-              anchor: marker,
-              shouldFocus: false,
-            });
-          });
-        })
-      }
+        });
+      })
     }
   }, [mapInstance, selectedBrand])
 
