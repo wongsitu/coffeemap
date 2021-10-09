@@ -27,5 +27,11 @@ export interface CoffeeType {
 export type BrandType = keyof typeof COFEE_LIST;
 
 export type IconUrlType = {
-  [key in BrandType]: string;
+  [key in BrandType]: {
+    size: {
+      height: number;
+      width: number;
+    };
+    url: string;
+  };
 };

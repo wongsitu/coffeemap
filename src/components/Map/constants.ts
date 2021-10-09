@@ -5,10 +5,34 @@ import peets from "../../icon/peets_logo.png";
 import gregorys from "../../icon/gregorys.png";
 
 export const iconUrls: IconUrlType = {
-  BLUE_BOTTLE: blueBottle,
-  GREGORYS_COFFEE: gregorys,
-  STARBUCKS: starbucks,
-  PEETS_COFFEE: peets,
+  BLUE_BOTTLE: {
+    url: blueBottle,
+    size: {
+      width: 20,
+      height: 20,
+    },
+  },
+  GREGORYS_COFFEE: {
+    url: gregorys,
+    size: {
+      width: 20,
+      height: 20,
+    },
+  },
+  STARBUCKS: {
+    url: starbucks,
+    size: {
+      width: 20,
+      height: 20,
+    },
+  },
+  PEETS_COFFEE: {
+    url: peets,
+    size: {
+      width: 20,
+      height: 20,
+    },
+  },
 };
 
 const GREGORYS_COFFEE: CoffeeType[] = [

@@ -38,7 +38,7 @@ const Map = () => {
   const [mapInstance, setMapInstance] = useState<google.maps.Map | null>(null);
 
   useEffect(() => {
-    if (google) {
+    if (typeof google !== 'undefined') {
       const map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
         center: { lat: 40.73289966190088, lng: -73.99639321053182 },
         zoom: 14,
@@ -58,8 +58,8 @@ const Map = () => {
           map: mapInstance,
           clickable: true,
           icon: {
-            url: iconUrls[selectedBrand],
-            scaledSize: new google.maps.Size(20, 20),
+            url: iconUrls[selectedBrand].url,
+            scaledSize: new google.maps.Size(iconUrls[selectedBrand].size.height, iconUrls[selectedBrand].size.width),
           }
         });
         setMarkers(currentMarkers => [...currentMarkers, marker])
