@@ -19,13 +19,13 @@ const renderLabels = ({ label, address, zip, hours }: CoffeeType) => {
     <div>{label}<br />{address}<br />NY,{zip}
       {hours && (
         <div className='hours'>
-          <br />Mon: <span className='times'>${hours?.mon}</span>
-          <br />Tue: <span className='times'>${hours?.tue}</span>
-          <br />Wed: <span className='times'>${hours?.wed}</span>
-          <br />Thu: <span className='times'>${hours?.thu}</span>
-          <br />Fri: <span className='times'>${hours?.fri}</span>
-          <br />Sat: <span className='times'>${hours?.sat}</span>
-          <br />Sun: <span className='times'>${hours?.sun}</span>
+          <br />Mon: <span className='times'>{hours?.mon}</span>
+          <br />Tue: <span className='times'>{hours?.tue}</span>
+          <br />Wed: <span className='times'>{hours?.wed}</span>
+          <br />Thu: <span className='times'>{hours?.thu}</span>
+          <br />Fri: <span className='times'>{hours?.fri}</span>
+          <br />Sat: <span className='times'>{hours?.sat}</span>
+          <br />Sun: <span className='times'>{hours?.sun}</span>
         </div>
       )}
     </div>
@@ -53,16 +53,16 @@ const Map = () => {
   useEffect(() => {
     if (selectedBrand) {
       COFEE_LIST[selectedBrand].forEach(({ position, label, address, zip, hours }) => {
-        const marker = new google.maps.Marker({
-          position,
-          map: mapInstance,
-          clickable: true,
-          icon: {
-            url: iconUrls[selectedBrand].url,
-            scaledSize: new google.maps.Size(iconUrls[selectedBrand].size.height, iconUrls[selectedBrand].size.width),
-          }
-        });
-        setMarkers(currentMarkers => [...currentMarkers, marker])
+          const marker = new google.maps.Marker({
+            position,
+            map: mapInstance,
+            clickable: true,
+            icon: {
+              url: iconUrls[selectedBrand].url,
+              scaledSize: new google.maps.Size(iconUrls[selectedBrand].size.height, iconUrls[selectedBrand].size.width),
+            }
+          });
+          setMarkers(currentMarkers => [...currentMarkers, marker])
 
         let content = renderLabels({ position, label, address, zip, hours });
 
